@@ -1,0 +1,32 @@
+@charset "utf-8";
+* {
+    margin:0;
+    padding:0;
+}
+#popover {
+    position: relative;
+    padding: 10px;
+    margin: 20px;
+    background: #efefef;
+}
+.pop {
+    display: none;
+}
+/* -------------------------------------------------------------------
+clearfix
+ ------------------------------------------------------------------- */
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+.clearfix {
+display: inline-table;
+min-height: 1%;
+}
+/* Hides from -mac \*/
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from -mac */
