@@ -1,7 +1,8 @@
 /**
- * simple popup over jQuery plugin
+ * simple popover jQuery plugin
  *
- * @params pos position (top, bottom)
+ * @param {String} pos position of popover
+ * (top, bottom)
  */
 jQuery.fn.popover = function(pos) {
     pos = pos || 'bottom';
@@ -11,11 +12,14 @@ jQuery.fn.popover = function(pos) {
     if ($(window).width() >= 768) {
         // class popover HTMLElement
         $(selector).hover(function() {
-            $('.pop', this).css(pos, height);
+            if ($('.pop').is(':animated') === true) {
+                return false;
+            }
             $('.pop', this).css({
                 position: 'absolute',
                 left: 0
             });
+            $('.pop', this).css(pos, height);
             $('.pop', this).slideDown();
         }, function() {
             $('.pop', this).hide('slow');
