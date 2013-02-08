@@ -1,22 +1,25 @@
 /**
- * simple drop down navigation jQuery plugin
+ * simple popup over jQuery plugin
  *
  */
-jQuery.fn.popover = function() {
-    var target = $(this.selector);
+jQuery.fn.popover = function( type ) {
+    type = type || 'left';
+    var selector = $(this.selector);
+    var height = $(this).innerHeight();
     // pc
     if ($(window).width() >= 768) {
-        // this reference is HTMLUlElement
-        $(target).hover(function() {
+        // class popover HTMLElement
+        $(selector).hover(function() {
             var style = {
-                display: 'block',
                 position: 'absolute',
-                top: 0,
+                bottom: height,
                 left: 0
             };
+            $('.pop', this).stop();
             $('.pop', this).css(style);
+            $('.pop', this).slideDown();
         }, function() {
-            $('.pop', this).css('display', 'none');
+            $('.pop', this).hide('slow');
         });
     }
 };
